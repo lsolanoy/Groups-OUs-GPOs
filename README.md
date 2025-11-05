@@ -31,16 +31,18 @@ Creating Organizational Units
 
 Enforcing GPOs
 
-1. We have created OUs that represent a deparment in a company. First we will enforce a GPO on the whole domain. A typical GPO you may see is an account lockout policy. A user will only have a certain number of attempts before their account is locked out for a duration of time. This policy is used to prevent unauthorized access and bruteforce attacks. We will enforce this policy on the whole domain. On Server Manager navigate to Tools > Group Policy Management > Click on your domain name > Right-click
+1. We have created OUs that represent a deparment in a company. First we will enforce a GPO on the whole domain. A typical GPO you may see is a password policy and an account lockout policy. A user must create a passwords that meet certain requirements for better security. A user will also only have a certain number of attempts before their account is locked out for a duration of time. Theses policies are used to prevent unauthorized access and bruteforce attacks. We will enforce them on the whole domain. On Server Manager navigate to Tools > Group Policy Management > Click on your domain name > Right-click
  on "Default Domain Policy" > Click Edit.
 <br/>
 <img width="594" height="419" alt="image" src="https://github.com/user-attachments/assets/3dd38cdd-a161-493a-8e59-65aa2476c42f" />
 <br />
 <br />
 
-2. On left menu navigate to Computer Configuration > Policies > Windows Settings > Security Settings > Account Policies > Account Lockout Policy. We will set "Account lockout duration" and "Reset account lockout counter after" to 5 minutes. Set Account lockout threshold to 3 attempts. After policy is set, open command prompt and run "gpudate /force"  to update policy. In a real world environment we would set these durations to be longer. In the account policies section we can also set a password policy which might inlcude rules such as password age, length, complexity, etc.
+2. On left menu navigate to Computer Configuration > Policies > Windows Settings > Security Settings > Account Policies > Account Lockout Policy. We will set "Account lockout duration" and "Reset account lockout counter after" to 5 minutes. Set Account lockout threshold to 3 attempts. After policy is set, open command prompt and run "gpudate /force"  to update policy. In a real world environment we would set these durations to be longer. In the account policies section we can also set a password policy which might include rules such as password age, length, complexity, etc based on company policy.
 <br/>
 <img width="620" height="446" alt="image" src="https://github.com/user-attachments/assets/64b539a6-ec9f-4f65-8006-e1f791c7ceff" />
+<img width="620" height="446" alt="image" src="https://github.com/user-attachments/assets/7a173a15-62c8-4071-b7b5-6e4cfd6dac74" />
+
 <br />
 <br />
 
@@ -56,26 +58,32 @@ Enforcing GPOs
 <br />
 <br />
 
-5. Let's say that you want to apply a policy to a certain department. We will assign a policy to the Engineering Department that disables their used of the control panel so
+5. If a user forgets a their password, you can reset it by navigating to Active Directory Users and Computer > Right Click on User's Name > Select "Reset Password". Enter a temporary password but check on the box that says "User must change password at next logon" so they can set their new password.
+<br/>
+<img width="752" height="529" alt="image" src="https://github.com/user-attachments/assets/86a6c0f9-ce6f-4611-a67e-511504587cc8" />
+<br />
+<br />
+
+6. Let's say that you want to apply a policy to a certain department. We will assign a policy to the Engineering Department that disables their used of the control panel so
 they can't change any system configurations on the computer. First on the DC, naviagte to Server Manager > Tools > Group Policy Management > Right Click "Group Policy Object" > Click New > Name it "Disbale Control Panel".
 <br/>
 <img width="598" height="417" alt="image" src="https://github.com/user-attachments/assets/e4610dc3-c1c3-48b2-ac59-73a37269d2ff" />
 <br />
 <br />
 
-6. Right click on GPO > click Edit. Navigate to User Configuration > Polices > Administrative Templates > Control Panel > Prohibit Access to Control Panel and PC settings. Click on it and "Enable" the policy.
+7. Right click on GPO > click Edit. Navigate to User Configuration > Polices > Administrative Templates > Control Panel > Prohibit Access to Control Panel and PC settings. Click on it and "Enable" the policy.
 <br />
 <img width="623" height="447" alt="image" src="https://github.com/user-attachments/assets/f97c8434-341a-4f89-acac-c9af75ee63da" />
 <br />
 <br />
 
-7. On the main menu of Group Policy Manangemnt, Drag the "Disable Control Panel" and drag it into the Engineering OU. Open command prompt and run  "gpudate /force" to update policy.
+8. On the main menu of Group Policy Manangemnt, Drag the "Disable Control Panel" and drag it into the Engineering OU. Open command prompt and run  "gpudate /force" to update policy.
 <br />
 <img width="593" height="421" alt="image" src="https://github.com/user-attachments/assets/60671d79-0f8a-4dff-8f64-fdd5f1881b7f" />
 <br />
 <br />
 
-8. Open Windows 11 VM and sign in to user in Engineering Department. Open command prompt and run "gpudate /force" to update policy. Now, if you try to open Control Panel on an Engineering account you will be denied.
+9. Open Windows 11 VM and sign in to user in Engineering Department. Open command prompt and run "gpudate /force" to update policy. Now, if you try to open Control Panel on an Engineering account you will be denied.
 <br />
 <img width="808" height="604" alt="image" src="https://github.com/user-attachments/assets/57d9c428-3b0c-44f3-ab41-2a3fee3dc2bb" />
 <br />
