@@ -3,7 +3,7 @@
 <h1>Active Directory Homelab</h1>
 Active Directory is Microsoft's centralized directory system used for managing users, systems and other resources within a network. It organizes these objects in a domain based structure where it can enforce authentication, authorization and group policies.
 <h2>Description</h2>
-In this lab, we will continue our Active Directory homelab by exploring some of the features like groups, OUs and GPOs. Groups are an object on AD that is used to assign permissions and access. Organizational Units are the smallest administrative unit in Active Directory and used to assign administrative prilviledges. We will even create a powershell script to automate the creation of a user and placement into an OU.
+In this lab, we will continue our Active Directory homelab by exploring some of the features like users, groups, OUs and GPOs. Groups are an object on AD that is used to assign permissions and access. Organizational Units are the smallest administrative unit in Active Directory and used to assign administrative prilviledges. GPOs are enforced on OUs and can define settings for users and computers in a domain. We will also go over common tasks that are performed in Active directory like unlcoking accounts and password resets.
 <br />
 
 
