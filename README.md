@@ -3,7 +3,7 @@
 <h1>Active Directory Homelab</h1>
 Active Directory is Microsoft's centralized directory system used for managing users, systems and other resources within a network. It organizes these objects in a domain based structure where it can enforce authentication, authorization and group policies.
 <h2>Description</h2>
-In this lab, we will continue our Active Directory homelab by exploring some of the features like users, groups, OUs and GPOs. Groups are an object on AD that is used to assign permissions and access. Organizational Units are the smallest administrative unit in Active Directory and used to assign administrative prilviledges. GPOs are enforced on OUs and can define settings for users and computers in a domain. We will also go over common tasks that are performed in Active directory like unlcoking accounts and password resets.
+In this lab, we will continue our Active Directory homelab by exploring some of the features like users, groups, OUs and GPOs. Groups are an object on AD that is used to assign permissions and access. Organizational Units are the smallest administrative unit in Active Directory and used to assign administrative prilviledges. GPOs are enforced on OUs and can define settings for users and computers in a domain. We will also go over common tasks that are performed in Active directory like unlocking accounts and password resets.
 <br />
 
 
@@ -27,7 +27,13 @@ Creating Organizational Units
 <br/>
 <img width="752" height="536" alt="image" src="https://github.com/user-attachments/assets/73158047-606a-4a8a-a2c8-0e02b1486654" />
 <br />
-<br /> 
+<br />
+
+3. Windows has predefined groups within Active Directory for managing different permissions and access to resources. You can create groups based on your company policies,
+<br/>
+<img width="1131" height="543" alt="image" src="https://github.com/user-attachments/assets/9f1a1c19-95c5-4d8d-823b-8c4bda2c8b60" />
+<br />
+<br />
 
 Enforcing GPOs
 
